@@ -1,0 +1,66 @@
+﻿@model NeadRosen.Models.Trabalho
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<br />
+<h4>Trabalho</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Campo Título -->
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+
+            <!-- Campo para selecionar a Disciplina -->
+            <div class="form-group">
+                <label for="DisciplinaId">Disciplina</label>
+                @if (ViewBag.Disciplinas != null)
+                {
+                    <select asp-for="DisciplinaId" class="form-control" asp-items="ViewBag.Disciplinas">
+                        <option value="">Selecione uma Disciplina</option>
+                    </select>
+                }
+                else
+                {
+                    <p class="text-warning">Não há disciplinas disponíveis.</p>
+                }
+            </div>
+
+            <!-- Lista de Seções Disponíveis -->
+            <div class="form-group">
+                <label>Seções Disponíveis</label>
+                @if (ViewBag.Secoes != null)
+                {
+                    @foreach (var secao in ViewBag.Secoes)
+                    {
+                        <div class="form-check">
+                            <input type="checkbox" name="SecoesItens" value="@secao.Id" class="form-check-input" />
+                            <label class="form-check-label">@secao.Conteudo</label>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p class="text-warning">Não há seções disponíveis.</p>
+                }
+            </div>
+
+            <!-- Botões de ação -->
+            <div class="form-group">
+                <br />
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-danger">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
