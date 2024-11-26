@@ -3,6 +3,14 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="p-5 bg-light rounded-3 shadow-sm">
+        <h1 class="display-3 text-primary font-weight-bold">NEAD</h1>
+        <p class="lead text-secondary">
+            Bem-vindo ao NeadRosen! Explore nossos trabalhos e aprenda mais sobre desenvolvimento com ASP.NET Core.
+        </p>
+        <div class="mt-4">
+            <a asp-controller="Trabalho" asp-action="Index" class="btn btn-primary btn-lg mx-2">Ver Trabalhos</a>
+            <a asp-controller="Home" asp-action="Privacy" class="btn btn-outline-secondary btn-lg mx-2">Política de Privacidade</a>
+        </div>
+    </div>
 </div>
